@@ -13,19 +13,28 @@ let submit = document.getElementById('submit-btn').addEventListener('click', cal
 
 function calculate() {
     document.getElementById('output').innerHTML = ''
+
     let kg = document.getElementById('search').value
     let lb;
     let g;
     let oz;
 
-    lb = kg * 2.2046
-    g = kg / 0.0010000
-    oz = kg * 35.274
+    if (kg == ''){
+        kg = 0
+    } else if (!isNaN(kg)){
 
-    IvestiDiv ('kilogramai', kg)
-    IvestiDiv ('svarai', lb)
-    IvestiDiv ('gramai', g)
-    IvestiDiv ('unicijos', oz)
+        lb = kg * 2.2046
+        g = kg / 0.0010000
+        oz = kg * 35.274
+
+        IvestiDiv('kilogramai', kg)
+        IvestiDiv('svarai', lb)
+        IvestiDiv('gramai', g)
+        IvestiDiv('unicijos', oz)
+
+    }else {
+        alert ('Ivestas neskaicius')
+    }
 
     document.getElementById('search').value = '';
 }
@@ -33,9 +42,11 @@ function calculate() {
 function IvestiDiv(name, value) {
     let output = document.getElementById('output')
     let div = document.createElement('div')
+
     div.innerText = "Gauti " + name + ' = ' + value;
     div.style.margin = '50px auto'
     div.style.maxWidth = '80%'
     div.style.fontSize = '50px'
+
     output.appendChild(div)
 }
