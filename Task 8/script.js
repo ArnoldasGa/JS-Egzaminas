@@ -10,8 +10,8 @@ division() - priima du skaičius ir grąžina jų dalybos rezultatą;
 Calculator ()
 
 function Calculator(a,b) {
-    number1 = Number(prompt('Iveskite pirma skaiciu'));
-    number2 = Number(prompt('Iveskite antra skaiciu'));
+    this.number1 = Number(prompt('Iveskite pirma skaiciu'));
+    this.number2 = Number(prompt('Iveskite antra skaiciu'));
     sum = function(){
         return this.number1 + this.number2
     }
